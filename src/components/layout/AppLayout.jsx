@@ -5,20 +5,38 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import ChatList from "../Specific/ChatList";
+import { samplechatsData } from "../constants/sampleData";
+import { useParams } from "react-router-dom";
 // import { Grid2, Grid22 } from "@mui/material";
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles("dark", {
+    backgroundColor: "#1A2027",
+  }),
+}));
 
 const AppLayout = () => (WrappedComponet) => {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    ...theme.applyStyles("dark", {
-      backgroundColor: "#1A2027",
-    }),
-  }));
+
+
+
+
+  // const chatId = params.chatId
+
+
   return (props) => {
+
+    let {chatId} = useParams();
+
+    const handleDeleteChat = (e, _id, groupChat)=>{
+      e.preventDefault()
+      console.log(e, _id, groupChat)
+    }
+
     return (
       <>
         <Title />
@@ -35,7 +53,13 @@ const AppLayout = () => (WrappedComponet) => {
               display: { xs: "none", sm: "block" }, // Only show on small screens and above
             }}
           >
-            <Item>Left Item</Item>
+          <ChatList chats={samplechatsData} chatId={chatId} newMessagesAlert={[{
+            chatId:"1",
+            count:10
+          }]}
+          onlineUsers={["1", "2"]}
+          handleDeleteChat={handleDeleteChat}
+          />
           </Grid>
 
           <Grid

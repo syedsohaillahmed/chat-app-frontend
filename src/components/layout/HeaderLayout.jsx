@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Backdrop,
   Box,
   Button,
   Container,
@@ -8,7 +9,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { Suspense, useState } from "react";
 import { orange } from "../constants/Colors";
 import {
   Group,
@@ -22,6 +23,14 @@ import {
 import { Navigate, useNavigate } from "react-router-dom";
 
 const HeaderLayout = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [searchDialog, setSearchDialog] = useState(false);
+
+  const [notificationDialog, setNotificationDailog] = useState(false);
+
+  const [groupDialog, setGroupDialog] = useState(false);
+  const [addGroupDialog, setAddGroupDialog] = useState(false);
+
   const navigate = useNavigate();
   const handleMobileMenu = (e) => {
     console.log("handleMobileMenu");
@@ -100,6 +109,23 @@ const HeaderLayout = () => {
           </Container>
         </AppBar>
       </Box>
+
+      {isMobile && (
+        <Suspense fallback={<Backdrop open />}>MobleDialog Will come</Suspense>
+      )}
+      {notificationDialog && (
+        <Suspense fallback={<Backdrop open />}>
+          notificationDialog Will come
+        </Suspense>
+      )}
+      {groupDialog && (
+        <Suspense fallback={<Backdrop open />}>groupDialog Will come</Suspense>
+      )}
+      {addGroupDialog && (
+        <Suspense fallback={<Backdrop open />}>
+          addGroupDialog Will come
+        </Suspense>
+      )}
     </>
   );
 };
