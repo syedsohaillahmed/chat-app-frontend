@@ -8,17 +8,7 @@ import Grid from "@mui/material/Grid";
 import ChatList from "../Specific/ChatList";
 import { samplechatsData } from "../constants/sampleData";
 import { useParams } from "react-router-dom";
-// import { Grid2, Grid22 } from "@mui/material";
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
-}));
+
 
 const AppLayout = () => (WrappedComponet) => {
 
@@ -42,7 +32,7 @@ const AppLayout = () => (WrappedComponet) => {
         <Title />
         <HeaderLayout />
         {/* <Box sx={{ flexGrow: 1 }}> */}
-        <Grid mt={0.1} height={"calc(100vh - 4rem)"} container spacing={2}>
+        <Grid  height={"calc(100vh - 4rem)"} container spacing={2}>
           <Grid
             height={"100%"}
             item
@@ -57,13 +47,14 @@ const AppLayout = () => (WrappedComponet) => {
             chatId:"1",
             count:10
           }]}
-          onlineUsers={["1", "2"]}
+          // onlineUsers={["1", "2"]}
           handleDeleteChat={handleDeleteChat}
           />
           </Grid>
 
           <Grid
             height={"100%"}
+            mt={2}
             bgcolor={"primary.main"}
             item
             xs={12} // Full width on extra small screens
@@ -83,7 +74,7 @@ const AppLayout = () => (WrappedComponet) => {
               display: { xs: "none", md: "block" }, // Only show on medium screens and above
             }}
           >
-            <Item>Right Item</Item>
+           3
           </Grid>
         </Grid>
 

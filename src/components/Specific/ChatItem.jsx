@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { Link } from "../styles/StyledComponent";
 import { Balance, Height } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/material";
+import AvatarCard from "../shared-components/AvatarCard";
 
 const ChatItem = ({
   avatar = [],
@@ -34,8 +35,8 @@ const ChatItem = ({
           color: sameSender ? "white" : "unset",
         }}
       >
-        {/* avatar card */}
-        <Stack>
+        <AvatarCard avatar={avatar} />
+        <Stack >
           <Typography>{name}</Typography>
           {newMessageAlert && (
             <Typography>{newMessageAlert.count} New Message</Typography>
@@ -44,6 +45,7 @@ const ChatItem = ({
 
         {isOnline && (
           <Box
+          ml={3}
             sx={{
               height: "10px",
               width: "10px",

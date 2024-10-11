@@ -18,7 +18,8 @@ export const Link = styled(LinkComponent)
     textDecoration:"none",
     color:"black",
     padding:"1rem",
+    
     ":hover":{
-    backgroundcolor: "yellow" 
+        backgroundColor: "wheat" 
     }
 })
