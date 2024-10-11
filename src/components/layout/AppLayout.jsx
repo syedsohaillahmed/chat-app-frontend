@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import ChatList from "../Specific/ChatList";
 import { samplechatsData } from "../constants/sampleData";
 import { useParams } from "react-router-dom";
+import Profile from "../Specific/Profile";
 
 
 const AppLayout = () => (WrappedComponet) => {
@@ -67,14 +68,16 @@ const AppLayout = () => (WrappedComponet) => {
           <Grid
             height={"100%"}
             item
+            mt={2}
             xs={0} // Hide on extra small screens
             md={4} // Show on medium screens and larger
             lg={3} // Adjust size on large screens
             sx={{
               display: { xs: "none", md: "block" }, // Only show on medium screens and above
             }}
+            bgcolor={"black"}
           >
-           3
+           <Profile />
           </Grid>
         </Grid>
 
