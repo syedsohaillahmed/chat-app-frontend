@@ -10,53 +10,51 @@ import { samplechatsData } from "../constants/sampleData";
 import { useParams } from "react-router-dom";
 import Profile from "../Specific/Profile";
 
-
 const AppLayout = () => (WrappedComponet) => {
-
-
-
-
   // const chatId = params.chatId
 
-
   return (props) => {
+    let { chatId } = useParams();
 
-    let {chatId} = useParams();
-
-    const handleDeleteChat = (e, _id, groupChat)=>{
-      e.preventDefault()
-      console.log(e, _id, groupChat)
-    }
+    const handleDeleteChat = (e, _id, groupChat) => {
+      e.preventDefault();
+      console.log(e, _id, groupChat);
+    };
 
     return (
       <>
         <Title />
         <HeaderLayout />
         {/* <Box sx={{ flexGrow: 1 }}> */}
-        <Grid  height={"calc(100vh - 4rem)"} container spacing={2}>
+        <Grid height={"calc(100vh - 4rem)"} container spacing={2}>
           <Grid
             height={"100%"}
             item
+            mt={2}
             xs={0} // Hide on extra small screens
             sm={4} // Show on small screens
             lg={3} // Adjust size on large screens
             sx={{
+              backgroundColor:"#EDDFE0",
               display: { xs: "none", sm: "block" }, // Only show on small screens and above
             }}
           >
-          <ChatList chats={samplechatsData} chatId={chatId} newMessagesAlert={[{
-            chatId:"1",
-            count:10
-          }]}
-          // onlineUsers={["1", "2"]}
-          handleDeleteChat={handleDeleteChat}
-          />
+            <ChatList
+              chats={samplechatsData}
+              chatId={chatId}
+              newMessagesAlert={[
+                {
+                  chatId: "1",
+                  count: 10,
+                },
+              ]}
+              // onlineUsers={["1", "2"]}
+              handleDeleteChat={handleDeleteChat}
+            />
           </Grid>
 
           <Grid
             height={"100%"}
-            mt={2}
-            bgcolor={"primary.main"}
             item
             xs={12} // Full width on extra small screens
             sm={8} // Medium width on small screens
@@ -77,7 +75,7 @@ const AppLayout = () => (WrappedComponet) => {
             }}
             bgcolor={"black"}
           >
-           <Profile />
+            <Profile />
           </Grid>
         </Grid>
 

@@ -23,3 +23,13 @@ export const Link = styled(LinkComponent)
         backgroundColor: "wheat" 
     }
 })
+
+export const CustomInputBox = styled("input")({
+    width:"100%",
+    height:"100%",
+    border:"none",
+    outline:"none",
+    padding: "20px",
+    borderRadius:"1.5rem",
+    backgroundColor:"ButtonHighlight"
+})
