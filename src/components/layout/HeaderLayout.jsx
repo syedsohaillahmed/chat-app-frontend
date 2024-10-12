@@ -18,9 +18,10 @@ import {
   Logout,
   Notifications,
   PersonAddAlt,
-  Search,
+  Search as SearchIcon,
 } from "@mui/icons-material";
 import { Navigate, useNavigate } from "react-router-dom";
+import Search from "../Specific/Search";
 
 const HeaderLayout = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,7 +38,7 @@ const HeaderLayout = () => {
   };
 
   const handleSearch = (e) => {
-    console.log("handleSearch");
+    setSearchDialog((prev)=> !prev)
   };
 
   const handleNotifications = (e) => {
@@ -79,7 +80,7 @@ const HeaderLayout = () => {
                 <IconWithButton
                   title={"search"}
                   handleFunc={handleSearch}
-                  icon={<Search />}
+                  icon={<SearchIcon />}
                 />
 
                 <IconWithButton
@@ -112,6 +113,9 @@ const HeaderLayout = () => {
 
       {isMobile && (
         <Suspense fallback={<Backdrop open />}>MobleDialog Will come</Suspense>
+      )}
+      {searchDialog && (
+        <Suspense fallback={<Backdrop open />}><Search /> </Suspense>
       )}
       {notificationDialog && (
         <Suspense fallback={<Backdrop open />}>
