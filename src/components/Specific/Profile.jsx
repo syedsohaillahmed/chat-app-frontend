@@ -7,7 +7,6 @@ const Profile = () => {
   const date = new Date("2023-11-19").toISOString();
   //  updatedDate = moment.duration(date)
 
-  console.log("date", date);
   return (
     <Stack spacing={"2rem"} alignItems={"center"}>
       <Avatar

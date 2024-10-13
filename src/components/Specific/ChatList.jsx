@@ -25,7 +25,6 @@ const ChatList = ({
             ({ chatId }) => chatId === _id
           );
 
-          console.log("dekho zara",  chatId, _id);
 
           const isOnline = members?.some((member) => onlineUsers.includes(_id));
 

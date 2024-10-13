@@ -5,6 +5,15 @@ import { homeBackgroundColor } from "../components/constants/Colors";
 import { AttachFile, Send } from "@mui/icons-material";
 import { CustomInputBox } from "../components/styles/StyledComponent";
 import { orange } from "../components/constants/Colors";
+import { sampleMessage } from "../components/constants/sampleData";
+import MessageComponent from "../components/shared-components/MessageComponent";
+
+const user = {
+  _id: "2",
+  name: "sohail",
+};
+
+console.log("sample mesageee", sampleMessage)
 
 const Chat = () => {
   const containerRef = useRef(null);
@@ -22,7 +31,9 @@ const Chat = () => {
           height: "90%",
         }}
       >
-        {/* {Message render} */}
+        {sampleMessage.map((messageData, index) => (
+          <MessageComponent message={messageData} key={index} user={user} />
+        ))}
       </Stack>
 
       <form style={{ height: "10%" }}>

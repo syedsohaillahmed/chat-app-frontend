@@ -43,3 +43,38 @@ export const userData = [
     imageUrl: "https://source.unsplash.com/random/200x200?sig=5",
   },
 ];
+
+export const sampleMessage = [
+  {
+    attachments: [
+      {
+        public_id:"2342",
+        url:"https://www.w3schools.com/howto/img_avatar.png"
+      }
+    ],
+    content:"Aaj koi nepal ke piche ni chupega",
+    _id:"23564565624",
+    sender:{
+      _id:"1",
+      name:"karim"
+    },
+    chat:"chatId",
+    createdAt:"2023-11-19T00:00:00.000Z"
+  },
+  {
+    attachments: [
+      {
+        public_id:"2342",
+        url:"https://www.w3schools.com/howto/img_avatar.png"
+      }
+    ],
+    content:"shaberathi",
+    _id:"23564565624",
+    sender:{
+      _id:"2",
+      name:"sohailss"
+    },
+    chat:"chatId",
+    createdAt:"2023-11-19T00:00:00.000Z"
+  }
+]

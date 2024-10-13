@@ -10,7 +10,6 @@ import {
 import React, { memo } from "react";
 
 const UserList = ({ user = [], handleAddFriend }) => {
-  console.log("userrr", user);
   return (
     <List sx={{ width: "100%" }}>
       {user.map((user, index) => (
