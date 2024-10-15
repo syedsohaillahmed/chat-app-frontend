@@ -5,7 +5,6 @@ import React from "react";
 
 const Profile = () => {
   const date = new Date("2023-11-19").toISOString();
-  //  updatedDate = moment.duration(date)
 
   return (
     <Stack spacing={"2rem"} alignItems={"center"}>
@@ -31,7 +30,7 @@ const Profile = () => {
       />
       <Profilecard
         text={"Joined"}
-        heading={moment("2023-11-19T00:00:00.000Z").fromNow().toLocaleUpperCase}
+        heading={moment("2023-11-19T00:00:00.000Z").fromNow().toUpperCase()}
         Icon={<CalendarMonth />}
       />
     </Stack>
