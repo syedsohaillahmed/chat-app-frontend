@@ -13,7 +13,6 @@ const user = {
   name: "sohail",
 };
 
-console.log("sample mesageee", sampleMessage)
 
 const Chat = () => {
   const containerRef = useRef(null);
