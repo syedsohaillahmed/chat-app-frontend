@@ -9,18 +9,20 @@ import {
 } from "@mui/material";
 import React, { memo } from "react";
 
-const UserList = ({ user = [], handleAddFriend }) => {
+const UserList = ({ user = [], handleAddFriend, styling={} }) => {
   return (
     <List sx={{ width: "100%" }}>
-      {user.map((user, index) => (
-        <ListItem key={index}>
+      {user?.map((user, index) => (
+        <ListItem {...styling} key={index}>
           <Container
+          
             sx={{
               justifyContent: "space-between",
               display: "flex",
               alignItems:"center",
               direction: "row",
               width: "100%",
+              
             }}
           >
             <Container

@@ -7,7 +7,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ChatList from "../Specific/ChatList";
 import { samplechatsData } from "../constants/sampleData";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Profile from "../Specific/Profile";
 
 const AppLayout = () => (WrappedComponet) => {
@@ -20,10 +20,16 @@ const AppLayout = () => (WrappedComponet) => {
       e.preventDefault();
       console.log(e, _id, groupChat);
     };
-
+    const navigate = useNavigate();
+    const handlenavigate = () => {
+      console.log("clicked");
+      navigate("/");
+    };
     return (
       <>
-        <Title />
+        <div onClick={() => handlenavigate()}>
+          <Title />
+        </div>
         <HeaderLayout />
         {/* <Box sx={{ flexGrow: 1 }}> */}
         <Grid height={"calc(100vh - 4rem)"} container spacing={2}>
@@ -35,7 +41,7 @@ const AppLayout = () => (WrappedComponet) => {
             sm={4} // Show on small screens
             lg={3} // Adjust size on large screens
             sx={{
-              backgroundColor:"#EDDFE0",
+              backgroundColor: "#EDDFE0",
               display: { xs: "none", sm: "block" }, // Only show on small screens and above
             }}
           >
