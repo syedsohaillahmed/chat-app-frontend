@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import AppLayout from "../components/layout/AppLayout";
 import { Box, Drawer, Grid, IconButton, Tooltip } from "@mui/material";
-import { orange } from "../components/constants/Colors";
 import {
-  BackHandOutlined,
-  Keyboard,
   KeyboardBackspace,
   Menu,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import GroupList from "../components/Specific/group-components/groupList";
+import { samplechatsData } from "../components/constants/sampleData";
 
 const Group = () => {
   const navigate = useNavigate();
+
+  const chatId = useSearchParams()[0].get("group")
+ 
+
   const [isdrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleMobileMenu = () => {
@@ -41,7 +43,7 @@ const Group = () => {
           bgcolor: "bisque",
         }}
       >
-        Group list will render here
+       <GroupList myGroups={samplechatsData} chatId={chatId} />
       </Grid>
 
       <Grid
@@ -102,7 +104,7 @@ const Group = () => {
           open={isdrawerOpen}
           onClose={handleCloseDrawer}
         >
-          GroupList will render here
+          <GroupList w={"50vw"}  myGroups={samplechatsData} chatId={chatId} />
         </Drawer>
       </Grid>
     </Grid>
